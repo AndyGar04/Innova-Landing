@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Send, Instagram, Linkedin, MessageCircle, MapPin, Clock } from 'lucide-react';
+import { Mail, Send, Instagram, MessageCircle, MapPin, Clock } from 'lucide-react';
 
 export const Contacto: React.FC = () => {
     return (

@@ -14,30 +14,30 @@ interface Project {
 const projectsData: Project[] = [
     {
         id: 1,
-        title: "Plataforma de reservas de canchas - API",
-        description: " Aplicación web para reservar canchas deportivas, gestion de usuarios, canchas",
-        tags: ["Node.js", "TypeScript", "SQLite", "Express", "JWT"],
-        repoLink: "https://github.com/AndyGar04/Proyecto-Final-Tup-BackEnd",
-        demoLink: "https://github.com/AndyGar04/Proyecto-Final-Tup-BackEnd",
-        image: "/SportManagerBack.jpg"
+        title: "Pagina web para LLA - Puan - Frontend",
+        description: " Aplicación web para subir publicaciones sobre movimientos de partido politico LLA en el municipio de Puan",
+        tags: ["Node.js", "TypeScript", "Next.js", "Tailwind CSS", "React", "MDX"],
+        repoLink: "https://github.com/Fausto-Desch/PaginaLLADistritoPuan",
+        demoLink: "https://lla-distrito-puan.vercel.app/",
+        image: "/Proyectos/LLA-Proyecto.jpg"
     },
     {
         id: 2,
-        title: "Plataforma de reservas de canchas - Frontend",
-        description: "Interfaz web para la plataforma de reservas de canchas, con autenticación y gestión de reservas.",
-        tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-        repoLink: "https://github.com/AndyGar04/Proyecto-Final-FrontEnd",
-        demoLink: "https://proyecto-final-frontend-one-beta.vercel.app/presentacion",
-        image: "/SportManager.jpg"
+        title: "Portfolio para Julian Heit - Frontend",
+        description: "Portafolio personal para Julian Heit, con secciones de proyectos, experiencia y contacto.",
+        tags: ["Node.js", "TypeScript", "Next.js", "Tailwind CSS", "React"],
+        repoLink: "https://github.com/Fausto-Desch/PortafolioPato",
+        demoLink: "https://github.com/Fausto-Desch/PortafolioPato",
+        image: "/Proyectos/JulianHeit-Proyecto.jpg"
     },
     {
         id: 3,
-        title: "Sistema de gestion de inventarios - Proyecto FullStack",
-        description: "Aplicación web para gestionar inventarios, con funcionalidades de CRUD y panel de administración.",
+        title: "Portafolio - Pagina para InnovaByte - Frontend",
+        description: "Portafolio de nuestro emprendimiento con secciones de proyectos, servicios, stock y contacto.",
         tags: ["React", "JavaScript", "Express", "Nginx", "PostgreSQL", "Docker"],
-        repoLink: "https://github.com/AndyGar04/ProgramacionIII/tree/main/Proyecto-Final",
-        demoLink: "#",
-        image: "/GestionDeStock.jpg"
+        repoLink: "https://github.com/AndyGar04/Innova-Landing",
+        demoLink: "https://github.com/AndyGar04/Innova-Landing",
+        image: "/Proyectos/InnovaPagina.jpg"
     }
 ];
 
