@@ -75,18 +75,18 @@ export const SobreNosotros: React.FC = () => {
                         <SocioCard 
                             nombre="Andy Garcia"
                             titulo="Tecnico en programación e informático"
-                            imagen="/foto-tuya.jpg" 
-                            github="#"
-                            linkedin="#"
-                            portfolio="#"
+                            imagen="/Foto-Andy.png" 
+                            github="https://github.com/AndyGar04"
+                            linkedin="https://www.linkedin.com/in/andy-garcia-programador/"
+                            portfolio="https://andy-garcia-portfolio.vercel.app/"
                         />
                         <SocioCard 
                             nombre="Fausto Desch"
                             titulo="Tecnico en programación e informático"
-                            imagen="/foto-amigo.jpg" 
-                            github="#"
-                            linkedin="#"
-                            portfolio="#"
+                            imagen="/Fausto-Foto.jfif" 
+                            github="https://github.com/Fausto-Desch"
+                            linkedin="https://www.linkedin.com/in/fausto-desch-3758a5226/"
+                            portfolio="https://github.com/Fausto-Desch"
                         />
                     </div>
 
