@@ -6,7 +6,7 @@ const testimonios = [
         id: 1,
         nombre: "Sergio Albornoz",
         empresa: "Referente - LLA, Puan",
-        texto: "",
+        texto: "La verdad que quedé muy conforme con el resultado. La página superó mis expectativas y cualquier duda o problema fue resuelto rápidamente. Se nota el compromiso y la dedicación en cada detalle.",
         servicio: "Pagina web & Soporte Técnico",
         estrellas: 5,
         linkProyecto: "https://tienda-ejemplo.com"
@@ -15,16 +15,16 @@ const testimonios = [
         id: 2,
         nombre: "Julian Heit",
         empresa: "Emprendedor",
-        texto: "",
+        texto: "Trabajar con InnovaByte fue una excelente experiencia. Supo entender perfectamente lo que necesitaba y lo llevó a una web moderna, rápida y muy bien diseñada. Además, el soporte técnico fue impecable en todo momento. Totalmente recomendado.",
         servicio: "Pagina Web & Soporte Técnico",
         estrellas: 5,
-        linkProyecto: "https://tienda-ejemplo.com"
+        linkProyecto: "https://portafolio-five-delta-26.vercel.app/"
     },
     {
         id: 3,
         nombre: "Agustin Perez",
         empresa: "Particular",
-        texto: "",
+        texto: "Excelente servicio técnico. Detectó y solucionó el problema de mi computadora rápidamente. Además, explicó todo de forma clara y dejó el equipo funcionando como nuevo.",
         servicio: "Optimización PC",
         estrellas: 5,
         linkProyecto: "https://tienda-ejemplo.com"

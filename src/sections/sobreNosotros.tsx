@@ -86,7 +86,7 @@ export const SobreNosotros: React.FC = () => {
                             imagen="/FotosSocios/Fausto-Foto.jfif" 
                             github="https://github.com/Fausto-Desch"
                             linkedin="https://www.linkedin.com/in/fausto-desch-3758a5226/"
-                            portfolio="https://github.com/Fausto-Desch"
+                            portfolio="https://portfolio-five-indol-34.vercel.app/"
                         />
                     </div>
 

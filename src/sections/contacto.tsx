@@ -31,7 +31,7 @@ export const Contacto: React.FC = () => {
                                 <div>
                                     <h4 className="font-bold text-innova-dark dark:text-white">WhatsApp</h4>
                                     <p className="text-slate-500 dark:text-slate-400 text-sm">Contestamos al toque</p>
-                                    <a href="https://wa.me/+5492923565384" className="text-innova-tech font-bold hover:underline">Iniciar chat</a>
+                                    <a href="https://wa.me/5492923565384?text=Hola,%20tengo%20una%20consulta" className="text-innova-tech font-bold hover:underline">Iniciar chat</a>
                                 </div>
                             </div>
 
