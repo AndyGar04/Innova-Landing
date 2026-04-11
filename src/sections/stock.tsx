@@ -11,21 +11,31 @@ interface Producto {
 }
 
 const productos: Producto[] = [
-    {
-        id: 1,
-        nombre: "Notebook Dell Latitude",
-        specs: "i5 11va Gen - 16GB RAM - 512GB SSD",
-        precio: "$550.000",
-        fotos: ["/laptop1.jpg", "/laptop1-alt.jpg", "/laptop1-interior.jpg"] // Rutas de tus fotos
-    },
-    {
-        id: 2,
-        nombre: "PC Gamer Entry Level",
-        specs: "Ryzen 5 4500 - GTX 1650 - 16GB RAM",
-        precio: "$620.000",
-        fotos: ["/pc1.jpg", "/pc1-back.jpg"]
-    },
-    // Agregá más acá...
+{
+    id: 1,
+    nombre: "Sony PlayStation 4 Pro 1TB Standard color negro azabache",
+    specs: "1TB HDD - 4K HDR - Wi-Fi y Bluetooth - Incluye 2 controles DualShock 4 ergonómicos",
+    precio: "$600.000",
+    fotos: [
+        "/FotosStock/play41.jpg",
+        "/FotosStock/play42.jpg",
+        "/FotosStock/play43.jpg",
+        "/FotosStock/play44.jpg",
+        "/FotosStock/play45.jpg"
+    ]
+},
+   {
+    id: 2,
+    nombre: "Canon PIXMA MP280 multifunción",
+    specs: "Impresora multifunción (impresión, escaneo y copia) - Inyección de tinta - Resolución 4800x1200 dpi - Escáner 1200x2400 dpi - USB (sin WiFi) - Soporta A4, carta, legal y fotos - Bandeja hasta 100 hojas",
+    precio: "$300.000",
+   fotos: [
+        "/FotosStock/impresora1.jpg",
+        "/FotosStock/impresora2.jpg",
+        "/FotosStock/impresora3.jpg",
+    ]
+},
+   
 ];
 
 export const Stock: React.FC = () => {
@@ -120,12 +130,12 @@ export const Stock: React.FC = () => {
                                             {productoSeleccionado.precio}
                                         </div>
                                     </div>
-                                    <a 
-                                        href={`https://wa.me/TUNUMERO?text=Hola! Me interesa la ${productoSeleccionado.nombre}`}
-                                        className="w-full py-4 bg-innova-tech text-innova-dark font-bold rounded-2xl text-center hover:scale-[1.02] transition-transform shadow-xl shadow-innova-tech/20"
-                                    >
-                                        Consultar por WhatsApp
-                                    </a>
+                                <a 
+                                href={`https://wa.me/5492923464118?text=Hola! Me interesa la ${productoSeleccionado.nombre}`}
+                            className="w-full py-4 bg-innova-tech text-innova-dark font-bold rounded-2xl text-center hover:scale-[1.02] transition-transform shadow-xl shadow-innova-tech/20"
+                            >
+                 Consultar por WhatsApp
+                    </a>
                                 </div>
                             </div>
                         </div>
