@@ -4,7 +4,11 @@ import { SobreNosotros } from './sections/sobreNosotros';
 import { Inicio } from './sections/inicio';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer';
+<<<<<<< HEAD
 import { FAQ } from './sections/FAQ';
+=======
+import { Stock } from './sections/stock';
+>>>>>>> 6b6e22c9b98138c11f765554a41b1f6e13ed497d
 import { Servicios } from './sections/servicios';
 import { Testimonios } from './sections/testimonios';
 
@@ -21,7 +25,11 @@ const App: React.FC = () => {
       
       <Proyectos />
 
+<<<<<<< HEAD
       <FAQ  />
+=======
+      <Stock />
+>>>>>>> 6b6e22c9b98138c11f765554a41b1f6e13ed497d
 
       <Servicios />
 
