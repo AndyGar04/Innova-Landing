@@ -4,7 +4,7 @@ import { SobreNosotros } from './sections/sobreNosotros';
 import { Inicio } from './sections/inicio';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer';
-import { Stock } from './sections/stock';
+import { FAQ } from './sections/FAQ';
 import { Servicios } from './sections/servicios';
 import { Testimonios } from './sections/testimonios';
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
       
       <Proyectos />
 
-      <Stock />
+      <FAQ  />
 
       <Servicios />
 
