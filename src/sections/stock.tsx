@@ -75,7 +75,7 @@ const productos: Product[] = [
     id: 5,
     nombre: 'SSD NVMe 1TB',
     categoria: 'Almacenamiento',
-    estado: 'nuevo',
+    estado: 'usado',
     precio: 100000,
     descripcion: 'Disco m.2 WD GREEN SATA SSD M.2 2280',
     especificaciones: ['240GB', 'Alta velocidad', 'Compatible con PC y notebook'],
