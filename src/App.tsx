@@ -1,41 +1,52 @@
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Contacto } from './sections/contacto';
 import { Proyectos } from './sections/proyectos';
 import { SobreNosotros } from './sections/sobreNosotros';
 import { Inicio } from './sections/inicio';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer';
-<<<<<<< HEAD
 import { FAQ } from './sections/FAQ';
-=======
-import { Stock } from './sections/stock';
->>>>>>> 6b6e22c9b98138c11f765554a41b1f6e13ed497d
 import { Servicios } from './sections/servicios';
+import { Stock } from './sections/stock';
 import { Testimonios } from './sections/testimonios';
 
-//Modularizacion de secciones y componentes.
-const App: React.FC = () => {
+const LandingPage: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.slice(1);
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300 font-sans text-slate-900 dark:text-slate-100 selection:bg-blue-500/30">
+    <>
+      <Inicio />
+      <SobreNosotros />
+      <Proyectos />
+      <Servicios />
+      <Testimonios />
+      <FAQ />
+      <Contacto />
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
       <Navbar />
 
-      <Inicio />
-
-      <SobreNosotros />
-      
-      <Proyectos />
-
-<<<<<<< HEAD
-      <FAQ  />
-=======
-      <Stock />
->>>>>>> 6b6e22c9b98138c11f765554a41b1f6e13ed497d
-
-      <Servicios />
-
-      <Testimonios />
-
-      <Contacto />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/compra-venta" element={<Stock />} />
+      </Routes>
 
       <Footer />
     </div>

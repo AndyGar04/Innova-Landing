@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 type Theme = 'light' | 'dark';
 
 export const Navbar: React.FC = () => {
-<<<<<<< HEAD
   const [theme, setTheme] = useState<Theme>('dark');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -47,135 +47,108 @@ export const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Sobre nosotros', href: '#sobre-nosotros' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Proyectos', href: '#proyectos' },
-    { name: 'Testimonios', href: '#testimonios' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Sobre nosotros', href: '/#sobre-nosotros' },
+    { name: 'Proyectos', href: '/#proyectos' },
+    { name: 'Servicios', href: '/#servicios' },
+    { name: 'Testimonios', href: '/#testimonios' },
+    { name: 'Contacto', href: '/#contacto' },
+    { name: 'Compra/Venta', href: '/compra-venta' },
   ];
 
   return (
     <nav
       className={`fixed w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? 'py-3 bg-white/90 dark:bg-[#020817]/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-lg'
-          : 'py-5 bg-transparent'
+          ? 'border-b border-slate-200 bg-white/85 py-3 shadow-lg backdrop-blur-xl dark:border-slate-800 dark:bg-[#020817]/85'
+          : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         {/* LOGO */}
-        <motion.a
-          href="#inicio"
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-black tracking-tight text-[#062c25] dark:text-white"
         >
-          Innova<span className="text-cyan-500">Byte</span>
-        </motion.a>
+          <Link to="/">Innova<span className="text-cyan-500">Byte</span></Link>
+        </motion.div>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+            {navLinks.map((link) => {
+              const isCompraVenta = link.href === '/compra-venta';
 
-          <ul className="flex items-center gap-8 text-slate-600 dark:text-slate-300 font-medium text-sm">
-            {navLinks.map((link) => (
-              <li key={link.name} className="relative group">
-                <a
-                  href={link.href}
-                  className="transition-colors duration-300 hover:text-cyan-500"
-                >
-                  {link.name}
-                </a>
+              return (
+                <li key={link.name} className={`group relative ${isCompraVenta ? 'ml-auto' : ''}`}>
+                  {link.href.startsWith('/#') || link.href === '/' ? (
+                    <Link
+                      to={link.href}
+                      className={
+                        link.href === '/'
+                          ? 'transition-colors duration-300 hover:text-cyan-500'
+                          : 'transition-colors duration-300 hover:text-cyan-500'
+                      }
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <NavLink
+                      to={link.href}
+                      className={({ isActive }: { isActive: boolean }) =>
+                        `transition-colors duration-300 ${
+                          isActive ? 'text-cyan-500' : 'hover:text-cyan-500'
+                        }`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  )}
 
-                <span
-                  className="
-                    absolute
-                    -bottom-1
-                    left-0
-                    w-0
-                    h-0.5
-                    bg-cyan-500
-                    transition-all
-                    duration-300
-                    group-hover:w-full
-                  "
-                />
-              </li>
-            ))}
+                  {!isCompraVenta && (
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-cyan-500 transition-all duration-300 group-hover:w-full" />
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           {/* THEME BUTTON */}
           <button
             onClick={toggleTheme}
-            className="
-              p-2.5
-              rounded-xl
-              bg-slate-100
-              dark:bg-slate-800
-              text-slate-800
-              dark:text-yellow-400
-              ring-1
-              ring-slate-200
-              dark:ring-slate-700
-              shadow-sm
-              hover:scale-105
-              transition-all
-            "
+            className="rounded-xl bg-slate-100 p-2.5 text-slate-800 shadow-sm ring-1 ring-slate-200 transition-all hover:scale-105 dark:bg-slate-800 dark:text-yellow-400 dark:ring-slate-700"
             aria-label="Cambiar tema"
           >
-            {theme === 'dark' ? (
-              <Sun size={18} />
-            ) : (
-              <Moon size={18} />
-            )}
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
           {/* CTA */}
           <a
-            href="#contacto"
-            className="
-              px-5
-              py-2.5
-              bg-cyan-500
-              text-[#062c25]
-              font-bold
-              rounded-xl
-              hover:bg-cyan-400
-              transition-all
-              shadow-lg
-              shadow-cyan-500/20
-            "
+            href="/#contacto"
+            className="rounded-xl bg-cyan-500 px-5 py-2.5 font-bold text-[#062c25] shadow-lg shadow-cyan-500/20 transition-all hover:bg-cyan-400"
           >
             Contactar
           </a>
         </div>
 
         {/* MOBILE BUTTONS */}
-        <div className="md:hidden flex items-center gap-3">
-
+        <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={toggleTheme}
             className="p-2 text-slate-700 dark:text-yellow-400"
+            aria-label="Cambiar tema"
           >
-            {theme === 'dark' ? (
-              <Sun size={22} />
-            ) : (
-              <Moon size={22} />
-            )}
+            {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
           </button>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 text-slate-800 dark:text-white"
+            aria-label="Abrir menú"
           >
-            {isMobileMenuOpen ? (
-              <X size={28} />
-            ) : (
-              <Menu size={28} />
-            )}
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-
         </div>
       </div>
 
@@ -187,191 +160,34 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="
-              absolute
-              top-full
-              left-0
-              w-full
-              bg-white
-              dark:bg-[#020817]
-              border-b
-              border-slate-200
-              dark:border-slate-800
-              shadow-xl
-              md:hidden
-            "
+            className="absolute left-0 top-full w-full border-b border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-[#020817] md:hidden"
           >
-            <div className="p-6">
-
-              <ul className="flex flex-col gap-5 mb-6">
+            <div className="space-y-5 p-6">
+              <ul className="flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="
-                        text-lg
-                        font-semibold
-                        text-slate-700
-                        dark:text-slate-200
-                        hover:text-cyan-500
-                        transition-colors
-                      "
+                      className="text-lg font-semibold text-slate-700 transition-colors hover:text-cyan-500 dark:text-slate-200"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
               <a
-                href="#contacto"
+                href="/#contacto"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="
-                  flex
-                  justify-center
-                  items-center
-                  w-full
-                  py-3
-                  bg-cyan-500
-                  text-[#062c25]
-                  font-bold
-                  rounded-xl
-                  hover:bg-cyan-400
-                  transition-all
-                "
+                className="flex w-full items-center justify-center rounded-xl bg-cyan-500 py-3 font-bold text-[#062c25]"
               >
                 Contactar
               </a>
-
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
   );
-=======
-    const [theme, setTheme] = useState<Theme>('dark');
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    // Persistencia y aplicación del tema
-    useEffect(() => {
-        const root = window.document.documentElement;
-        theme === 'dark' ? root.classList.add('dark') : root.classList.remove('dark');
-    }, [theme]);
-
-    // Efecto de scroll para cambiar el estilo del Navbar
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const toggleTheme = () => {
-        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-    };
-
-    const navLinks = [
-        { name: 'Inicio', href: '#inicio' },
-        { name: 'Sobre nosotros', href: '#sobre-nosotros' },
-        { name: 'Proyectos', href: '#proyectos' },
-        { name: 'Servicios', href: '#servicios' },
-        { name: 'Stock', href: '#stock' },
-        { name: 'Contacto', href: '#contacto' },
-    ];
-
-    return (
-        <nav 
-            className={`fixed w-full z-[100] transition-all duration-500 ${
-                isScrolled 
-                ? 'py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm' 
-                : 'py-5 bg-transparent'
-            }`}
-        >
-            <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-                
-                {/* LOGO */}
-                <motion.h1 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="text-2xl font-bold text-blue-600 dark:text-blue-400 font-mono tracking-tight"
-                >
-                    &lt;InnovaByte/&gt;
-                </motion.h1>
-                
-                {/* DESKTOP NAV */}
-                <div className="hidden md:flex items-center gap-8">
-                    <ul className="flex gap-8 text-slate-600 dark:text-slate-300 font-medium text-sm">
-                        {navLinks.map((link) => (
-                            <li key={link.name} className="relative group">
-                                <a 
-                                    href={link.href} 
-                                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                                >
-                                    {link.name}
-                                </a>
-                                {/* Línea animada al hacer hover */}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full" />
-                            </li>
-                        ))}
-                    </ul>
-                    
-                    {/* TOGGLE THEME */}
-                    <button 
-                        onClick={toggleTheme}
-                        className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-yellow-400 transition-all hover:scale-110 active:scale-95 ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm"
-                        aria-label="Toggle Dark Mode"
-                    >
-                        {theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}
-                    </button>
-                </div>
-
-                {/* MOBILE BUTTONS */}
-                <div className="md:hidden flex items-center gap-4">
-                    <button 
-                        onClick={toggleTheme}
-                        className="p-2 text-slate-600 dark:text-yellow-400"
-                    >
-                        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                    </button>
-                    <button 
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 text-slate-800 dark:text-white"
-                    >
-                        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
-                </div>
-            </div>
-
-            {/* MOBILE MENU DESPLEGABLE */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div 
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-6 md:hidden shadow-xl"
-                    >
-                        <ul className="flex flex-col gap-5">
-                            {navLinks.map((link) => (
-                                <li key={link.name}>
-                                    <a 
-                                        href={link.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-lg font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400"
-                                    >
-                                        {link.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
-    );
->>>>>>> 6b6e22c9b98138c11f765554a41b1f6e13ed497d
 };
